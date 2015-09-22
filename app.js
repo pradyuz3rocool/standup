@@ -8,11 +8,17 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+//mongoose ODM...
+var mongoose = require('mongoose');
+//connect to MongoDB
+mongoose .connect('mongodb://demo:demo@ds042698.mongolab.com:42698/standupmeetings');
+
 var app = express();
 
 //assign the swig view engine to .html files...
 var swig = require('swig');
 app.engine('html', swig.renderFile);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
